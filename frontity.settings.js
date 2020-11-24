@@ -33,7 +33,6 @@ const settings = {
             state: {
                 source: {
                     url: "https://www.choice.marketing",
-                    homepage: "/home",
                 },
             },
         },

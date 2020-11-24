@@ -8,6 +8,7 @@ import Loading from "./loading";
 import PageError from "./page-error";
 import Post from "./post";
 import Title from "./title";
+import Homepage from "./hompage"
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 /**
@@ -41,6 +42,7 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
+          <Homepage when={data.isHomePage} />
         </Switch>
       </Main>
 
@@ -122,4 +124,5 @@ const Main = styled.div`
     rgba(66, 174, 228, 0.1),
     rgba(66, 174, 228, 0)
   );
+  position: relative;
 `;
