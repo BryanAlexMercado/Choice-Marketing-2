@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect, styled, decode } from "frontity";
 import { Global, css } from "frontity";
 
 const Homepage = ({ state }) => {
   // Get the data of the current list.
+  const [scroll, setScroll] = useState(false);
   const data = state.source.get(state.router.link);
+  const onClick = (value) => {
+    const elmnt = document.getElementById(value);
+    elmnt.scrollIntoView({ behavior: "smooth" });
+  };
+  let scrolling = (s) => {
+    let sc = s.target.scrollingElement.scrollTop;
+
+    if (sc >= 1700) setScroll(true);
+    else setScroll(false);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", scrolling);
+    return () => {
+      window.removeEventListener("scroll", scrolling);
+    };
+  }, []);
+
   return (
     <Container>
       {data.isTaxonomy && (
-        <Header>
+        <Header onScroll={() => scrolling($event)}>
           {data.taxonomy}:{" "}
           <b>{decode(state.source[data.taxonomy][data.id].name)}</b>
         </Header>
@@ -76,7 +94,7 @@ const Homepage = ({ state }) => {
               ChoiceOMG could be your partner agency. <br />{" "}
               <span>Learn more about CHOICE.</span>
             </p>
-            <div className="__online-marketing">
+            <div className="__online-marketing" id="online">
               <h2>Online marketing achieves the incredible</h2>
               <p>
                 We focus on the web advertising aspects and the creative ad
@@ -96,7 +114,7 @@ const Homepage = ({ state }) => {
                 across the globe.
               </p>
             </div>
-            <div className="__learn-the-most">
+            <div className="__learn-the-most" id="learn">
               <h2>
                 Learn the most effective tactics behind every successful <br />{" "}
                 digital marketing campaign.​
@@ -140,7 +158,7 @@ const Homepage = ({ state }) => {
                 admin functions online.
               </p>
             </div>
-            <div className="__featured-website">
+            <div className="__featured-website" id="featured">
               <h2>Featured Website Projects</h2>
               <div className="__featured-website-bl">
                 <div className="___right">
@@ -181,7 +199,7 @@ const Homepage = ({ state }) => {
                 </div>
               </div>
             </div>
-            <div className="__recent-web">
+            <div className="__recent-web" id="recent">
               <h2>Recent Website Projects</h2>
               <div className="___recent-web-content">
                 <div>
@@ -224,7 +242,7 @@ const Homepage = ({ state }) => {
                 </div>
               </div>
             </div>
-            <div className="__choice-online">
+            <div className="__choice-online" id="choice">
               <h2>Choice Online Marketing Group Inc.</h2>
               <b>
                 <i>
@@ -242,7 +260,7 @@ const Homepage = ({ state }) => {
                 <span>message us on Facebook</span>.
               </p>
             </div>
-            <div className="__creative-service">
+            <div className="__creative-service" id="creative">
               <h1>Creative Service Details</h1>
               <h2>Graphic Design and Printing Services</h2>
               <p>
@@ -286,7 +304,7 @@ const Homepage = ({ state }) => {
                 &nbsp;Fleet decals and signs
               </p>
             </div>
-            <div className="__websites-creatives">
+            <div className="__websites-creatives" id="websites">
               <h2>Websites Creatives and Landing Pages</h2>
               <p>
                 Yes, you can definitely find cheaper or even free websites and
@@ -344,7 +362,7 @@ const Homepage = ({ state }) => {
                 management frameworks
               </p>
             </div>
-            <div className="__edmonton-web">
+            <div className="__edmonton-web" id="edmonton">
               <h2>Edmonton Web Design Service</h2>
               <p>
                 We offer affordable web design at one of our locations in
@@ -396,33 +414,46 @@ const Homepage = ({ state }) => {
               </div>
             </div>
             <div className="__scroll-element">
-              <a role="button">Online marketing achieves the incredible</a>{" "}
-              <br />
-              <br />
-              <a role="button">Learn the most effective tactics behind...</a>
-              <br />
-              <br />
-              <a role="button">Featured Website Projects</a>
-              <br />
-              <br />
-              <a role="button">Recent Website Projects</a>
-              <br />
-              <br />
-              <a role="button">Choice Online Marketing Group Inc.</a>
-              <br />
-              <br />
-              <a role="button">Creative Service Details</a>
-              <br />
-              <br />
-              <a role="button">Graphic Design and Printing Services</a>
-              <br />
-              <br />
-              <a role="button">Websites Creatives and Landing Pages</a>
-              <br />
-              <br />
-              <a role="button">Edmonton Web Design Service</a>
-              <br />
-              <br />
+              <div className={scroll && "___active-scroll"}>
+                <a role="button" onClick={() => onClick("online")}>
+                  Online marketing achieves the incredible
+                </a>{" "}
+                <br />
+                <br />
+                <a role="button" onClick={() => onClick("learn")}>
+                  Learn the most effective tactics behind...
+                </a>
+                <br />
+                <br />
+                <a role="button" onClick={() => onClick("featured")}>
+                  Featured Website Projects
+                </a>
+                <br />
+                <br />
+                <a role="button" onClick={() => onClick("recent")}>
+                  Recent Website Projects
+                </a>
+                <br />
+                <br />
+                <a role="button" onClick={() => onClick("choice")}>
+                  Choice Online Marketing Group Inc.
+                </a>
+                <br />
+                <br />
+                <a role="button" onClick={() => onClick("creative")}>
+                  Creative Service Details
+                </a>
+                <br />
+                <br />
+                <a role="button" onClick={() => onClick("websites")}>
+                  Websites Creatives and Landing Pages
+                </a>
+                <br />
+                <br />
+                <a role="button" onClick={() => onClick("edmonton")}>
+                  Edmonton Web Design Service
+                </a>
+              </div>
             </div>
           </div>
         </ContentPageHome>
@@ -542,11 +573,13 @@ const ContentPageHome = styled.div`
       .__featured-website-bl {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         .___right {
           width: 325px;
           background-color: #fff;
           border-radius: 12px;
           box-shadow: 5px 10px 20px 10px rgba(0, 0, 0, 0.1);
+          margin-bottom: 30px;
           & > div:last-of-type {
             padding: 10px 20px;
           }
@@ -556,6 +589,7 @@ const ContentPageHome = styled.div`
           background-color: #fff;
           border-radius: 12px;
           box-shadow: 5px 10px 20px 10px rgba(0, 0, 0, 0.1);
+          margin-bottom: 30px;
           & > div:last-of-type {
             padding: 10px 20px;
           }
@@ -607,6 +641,13 @@ const ContentPageHome = styled.div`
     }
     .__scroll-element {
       margin: 30px 0 0 0;
+      position: relative;
+      .___active-scroll {
+        position: fixed;
+        top: 0;
+        margin-top: 30px;
+        z-index: 1;
+      }
     }
   }
 `;

@@ -8,7 +8,7 @@ import Loading from "./loading";
 import PageError from "./page-error";
 import Post from "./post";
 import Title from "./title";
-import Homepage from "./hompage"
+import Homepage from "./hompage";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 /**
@@ -54,6 +54,7 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+  //#region
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -107,6 +108,288 @@ const globalStyles = css`
     > .elementor-element-populated {
     padding: 45px 45px 45px 45px;
   }
+  //#endregion
+  //#region
+  .css-di06a-Container.emgezev0 {
+    h1,
+    h2 {
+      color: #090033;
+    }
+
+    & > div:first-of-type {
+      h1 {
+        margin: 0 0 26px 0;
+        font-size: 45px;
+      }
+    }
+    //#region css page web desgin
+    .elementor-posts-container.elementor-posts.elementor-posts--skin-cards.elementor-grid {
+      width: 57%;
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: space-between;
+      // margin: 20px 0;
+
+      .website {
+        width: 222px;
+        background-color: #fff;
+        border-radius: 26px;
+
+        margin: 16px 0;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+
+        .frontity-lazy-image.attachment-medium_large.size-medium_large {
+          border-radius: 26px 26px 0 0;
+          height: 110px;
+          background-image: linear-gradient(#fff, #a4a4a4);
+        }
+        .elementor-post__card {
+          position: relative;
+        }
+
+        .elementor-post__thumbnail {
+          span {
+            padding-bottom: 0;
+            height: 100px;
+          }
+        }
+
+        .elementor-post__title {
+          text-align: center;
+          padding: 0 10px;
+          font-weight: 700;
+
+          a {
+            text-decoration: unset;
+            color: #090033;
+          }
+        }
+        .elementor-post__badge {
+          position: absolute;
+          top: 0;
+          margin-top: 10px;
+
+          margin-left: 10px;
+          font-weight: 600;
+          line-height: 1em;
+
+          letter-spacing: 1.5px;
+          background-color: #272a40b5;
+          padding: 5px 10px;
+
+          border-radius: 25px;
+          color: #fff;
+        }
+      }
+    }
+
+    .elementor-column.elementor-col-100.elementor-top-column.elementor-element.elementor-element-b180053 {
+      width: 57%;
+      a {
+        color: #f09;
+        text-decoration: none;
+      }
+      .elementor-widget-container {
+        h2 {
+          font-size: 32px;
+        }
+      }
+      .elementor-text-editor.elementor-clearfix {
+        p {
+          font-size: 17px;
+          color: #090033;
+          margin-bottom: 40px;
+        }
+      }
+      .elementor-image {
+        width: 365px;
+        img {
+          object-fit: unset;
+        }
+      }
+    }
+    .elementor-element.elementor-element-c6de2f8.elementor-align-center.elementor-widget.elementor-widget-button {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 50px;
+      .elementor-button-text {
+        padding: 17px 27px;
+        background-color: #272a40;
+        font-size: 20px;
+
+        color: #fff;
+        border-radius: 30px;
+        &:hover {
+          background-color: #f09;
+        }
+      }
+    }
+    .elementor-element.elementor-element-702e640.elementor-widget__width-initial.elementor-widget.elementor-widget-image {
+      width: 200px;
+      display: inline-block;
+    }
+    .elementor-element.elementor-element-65fd125.elementor-widget__width-initial.elementor-widget.elementor-widget-text-editor {
+      display: inline-block;
+      width: 40%;
+      padding: 0 30px;
+      position: absolute;
+    }
+    //#endregion
+
+    //#region css page graphic
+    .elementor-posts-container.elementor-posts.elementor-posts--skin-cards.elementor-grid {
+      .graphics {
+        width: 222px;
+        background-color: #fff;
+        border-radius: 26px;
+
+        margin: 16px 0;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+
+        .frontity-lazy-image.attachment-medium_large.size-medium_large {
+          border-radius: 26px 26px 0 0;
+          height: 110px;
+          background-image: linear-gradient(#fff, #a4a4a4);
+          position: unset;
+        }
+        .elementor-post__card {
+          position: relative;
+        }
+        .elementor-post__thumbnail {
+          span {
+            padding-bottom: 0;
+            height: 100px;
+          }
+        }
+
+        .elementor-post__title {
+          text-align: center;
+          padding: 0 10px;
+          font-weight: 700;
+
+          a {
+            text-decoration: unset;
+            color: #090033;
+          }
+        }
+        .elementor-post__badge {
+          position: absolute;
+          top: 0;
+          margin-top: 10px;
+
+          margin-left: 10px;
+          font-weight: 600;
+          line-height: 1em;
+
+          letter-spacing: 1.5px;
+          background-color: #272a40b5;
+          padding: 5px 10px;
+
+          border-radius: 25px;
+          color: #fff;
+        }
+      }
+    }
+    .elementor-element.elementor-element-7a79b1c.elementor-widget.elementor-widget-text-editor {
+      width: 70%;
+      text-align: start;
+      p {
+        font-size: 17px;
+        color: #090033;
+        margin-bottom: 40px;
+      }
+    }
+    .elementor-element.elementor-element-9c3cf05.elementor-widget-tablet__width-initial.elementor-widget-mobile__width-initial.elementor-widget.elementor-widget-heading {
+      width: 70%;
+      color: #090033;
+    }
+    .elementor-element.elementor-element-679fecb.elementor-widget.elementor-widget-image {
+      text-align: start;
+      span {
+        padding: 0;
+      }
+      img {
+        position: unset;
+        width: 70%;
+      }
+    }
+    .elementor-element.elementor-element-b64f5aa.elementor-widget.elementor-widget-text-editor {
+      width: 70%;
+      text-align: start;
+      p {
+        font-size: 17px;
+        color: #090033;
+        margin-bottom: 40px;
+      }
+    }
+    .elementor-section.elementor-inner-section.elementor-element.elementor-element-5e3ee3b.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default {
+      width: 80%;
+      span {
+        color: #090033;
+        font-weight: 500;
+      }
+      p {
+        font-size: 17px;
+        color: #090033;
+        margin-bottom: 40px;
+      }
+      .elementor-widget-wrap.elementor-element-populated {
+        padding: 0;
+      }
+    }
+    .elementor-section.elementor-inner-section.elementor-element.elementor-element-1c37de7.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default {
+      width: 80%;
+      span {
+        color: #090033;
+        font-weight: 500;
+      }
+      p {
+        font-size: 17px;
+        color: #090033;
+        margin-bottom: 40px;
+      }
+    }
+    .elementor-section.elementor-inner-section.elementor-element.elementor-element-da7fa12.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default {
+      width: 80%;
+      span {
+        color: #090033;
+        font-weight: 500;
+      }
+      p {
+        font-size: 17px;
+        color: #090033;
+        margin-bottom: 40px;
+      }
+    }
+    .elementor-section.elementor-inner-section.elementor-element.elementor-element-5d2d404.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default {
+      width: 80%;
+      span {
+        color: #090033;
+        font-weight: 500;
+      }
+      p {
+        font-size: 17px;
+        color: #090033;
+        margin-bottom: 40px;
+      }
+    }
+    .elementor-element.elementor-element-7688199.elementor-widget.elementor-widget-image {
+      text-align: start;
+      span {
+        padding: 0;
+      }
+      img {
+        position: unset;
+        width: 70%;
+      }
+    }
+    .elementor-widget-container {
+      padding: 1em 40px;
+    }
+    //#endregion page graphic
+  }
+  //#endregion
 `;
 
 const HeadContainer = styled.div`

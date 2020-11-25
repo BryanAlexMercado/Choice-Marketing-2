@@ -5,59 +5,70 @@ const footer = {
   left: [
     {
       title: "About ChoiceOMG Inc.",
-      icon: "",
+      icon:
+        "https://www1.choice.marketing/wp-content/uploads/2020/11/information.svg",
     },
     {
       title: "Web Design Portfolio",
-      icon: "",
+      icon:
+        "https://www1.choice.marketing/wp-content/uploads/2020/11/insert-picture-icon.svg",
     },
     {
       title: "Graphic Design Portfolio",
-      icon: "",
+      icon:
+        "https://www2.choice.marketing/wp-content/uploads/2020/11/web-design.svg",
     },
   ],
   between: [
     {
       title: "(780) 628-2798",
-      icon: "",
+      icon: "https://www2.choice.marketing/wp-content/uploads/2020/11/call.svg",
     },
     {
       title: "(877) 930-0955",
-      icon: "",
+      icon:
+        "https://www1.choice.marketing/wp-content/uploads/2020/11/speech-bubble.svg",
     },
     {
       title: "Choice Hosting",
-      icon: "",
+      icon:
+        "https://www2.choice.marketing/wp-content/uploads/2020/11/settings.svg ",
     },
     {
       title: "Send Large Files",
-      icon: "",
+      icon:
+        "https://www2.choice.marketing/wp-content/uploads/2020/11/cloud-storage-uploading-option.svg",
     },
     {
       title: "My Account",
-      icon: "",
+      icon: "https://www2.choice.marketing/wp-content/uploads/2020/11/user.svg",
     },
   ],
   right: [
     {
       title: "Choice Jobs",
-      icon: "",
+      icon:
+        "https://www1.choice.marketing/wp-content/uploads/2020/11/portfolio.svg",
     },
     {
       title: "Search Console",
-      icon: "",
+      icon:
+        "https://www1.choice.marketing/wp-content/uploads/2020/11/loupe.svg",
     },
     {
       title: "Google Analytics",
-      icon: "",
+      icon:
+        "https://www2.choice.marketing/wp-content/uploads/2020/11/line-chart.svg",
     },
     {
       title: "Community",
-      icon: "",
+      icon:
+        "https://www1.choice.marketing/wp-content/uploads/2020/11/chatting.svg",
     },
     {
       title: "Forums Blog",
-      icon: "",
+      icon:
+        "https://www1.choice.marketing/wp-content/uploads/2020/11/blogging.svg",
     },
   ],
 };
@@ -92,9 +103,12 @@ const Footer = ({ state }) => {
               <div>
                 {footer.left.map((itemLeft, indexLeft) => {
                   return (
-                    <div>
-                      <i className="fas fa-info"></i>
-                      <p style={{ fontWeight: 500 }}>{itemLeft.title}</p>
+                    <div key={indexLeft}>
+                      <h3 style={{ fontWeight: 500, display: "flex" }}>
+                        <img src={itemLeft.icon} width="16px" />
+                        &emsp;
+                        {itemLeft.title}
+                      </h3>
                     </div>
                   );
                 })}
@@ -111,9 +125,12 @@ const Footer = ({ state }) => {
               <div>
                 {footer.between.map((itemBetween, indexBetween) => {
                   return (
-                    <div>
-                      <i className="fas fa-info"></i>
-                      <p style={{ fontSize: `${14}px` }}>{itemBetween.title}</p>
+                    <div key={indexBetween}>
+                      <p style={{ fontSize: `${14}px`, display: "flex" }}>
+                        <img src={itemBetween.icon} width="16px" />
+                        &emsp;
+                        {itemBetween.title}
+                      </p>
                     </div>
                   );
                 })}
@@ -124,9 +141,12 @@ const Footer = ({ state }) => {
               <div>
                 {footer.right.map((itemRight, indexRight) => {
                   return (
-                    <div>
-                      <i className="fas fa-info"></i>
-                      <p style={{ fontSize: `${14}px` }}>{itemRight.title}</p>
+                    <div key={indexRight}>
+                      <p style={{ fontSize: `${14}px`, display: "flex" }}>
+                        {" "}
+                        <img src={itemRight.icon} width="16px" />
+                        &emsp;{itemRight.title}
+                      </p>
                     </div>
                   );
                 })}
@@ -142,9 +162,31 @@ const Footer = ({ state }) => {
               &nbsp;|&nbsp;
               <span style={{ fontSize: `${14}px` }}>Legal</span>
             </span>
-            <div>
-              icon twitter, icon facebook,...(issue: can't add fontawesome for
-              fontity)
+            <div className="___icon-footer">
+              <img
+                src="https://www2.choice.marketing/wp-content/uploads/2020/11/twitter.svg"
+                width="40px"
+              />
+              <img
+                src="https://www1.choice.marketing/wp-content/uploads/2020/11/facebook.svg"
+                width="40px"
+              />
+              <img
+                src="https://www2.choice.marketing/wp-content/uploads/2020/11/youtube.svg"
+                width="40px"
+              />
+              <img
+                src="https://www1.choice.marketing/wp-content/uploads/2020/11/linkedin.svg"
+                width="40px"
+              />
+              <img
+                src="https://www2.choice.marketing/wp-content/uploads/2020/11/github-1.svg"
+                width="40px"
+              />
+              <img
+                src="https://www2.choice.marketing/wp-content/uploads/2020/11/instagram.svg"
+                width="40px"
+              />
             </div>
             <div>
               <img src="https://www.choice.marketing/media/2018/10/choice-1.png"></img>
@@ -166,6 +208,8 @@ const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 99;
 
     //#region 
   & > .footer-above{
@@ -254,6 +298,11 @@ const Container = styled.div`
            img{
                width: 100%;
            }
+        }
+        .___icon-footer{
+          img{
+            margin: 0 7px;
+          }
         }
     }
     //#endregion
